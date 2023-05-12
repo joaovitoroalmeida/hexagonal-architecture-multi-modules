@@ -1,6 +1,6 @@
-package com.hexagonal.architecture.multi.modules.grpc.server.repository.impl
+package com.hexagonal.architecture.multi.modules.grpc.server.repository.impl.user
 
-import com.hexagonal.architecture.multi.modules.repository.workspace.FindUserRepository
+import com.hexagonal.architecture.multi.modules.repository.user.FindUserRepository
 import org.springframework.stereotype.Repository
 
 @Repository

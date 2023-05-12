@@ -1,7 +1,7 @@
 package com.hexagonal.architecture.multi.modules.domain.workspace
 
 import com.hexagonal.architecture.multi.modules.repository.workspace.CreateWorkspaceRepository
-import com.hexagonal.architecture.multi.modules.repository.workspace.FindUserRepository
+import com.hexagonal.architecture.multi.modules.repository.user.FindUserRepository
 import com.hexagonal.architecture.multi.modules.service.workspace.CreateWorkspaceService
 import org.springframework.stereotype.Service
 
