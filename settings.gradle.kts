@@ -1,6 +1,7 @@
 rootProject.name = "hexagonal-architecture-multi-modules"
 
-val adaptersRootDir = "infrastructure/adapters"
+val infrastructureRootDir = "infrastructure"
+val adaptersRootDir = "$infrastructureRootDir/adapters"
 
 // Includes
 include(":core")
@@ -12,7 +13,7 @@ include(":rest-adapter")
 
 // Modules Name
 project(":core").projectDir = file("core")
-project(":server").projectDir = file("server")
+project(":server").projectDir = file("$infrastructureRootDir/server")
 project(":database-adapter").projectDir = file("$adaptersRootDir/database")
 project(":grpc-adapter").projectDir = file("$adaptersRootDir/grpc")
 project(":messaging-adapter").projectDir = file("$adaptersRootDir/messaging")

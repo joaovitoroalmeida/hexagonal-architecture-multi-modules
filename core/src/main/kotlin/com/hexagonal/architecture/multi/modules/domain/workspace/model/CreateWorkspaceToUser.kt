@@ -1,4 +1,4 @@
-package com.hexagonal.architecture.multi.modules.domain.model
+package com.hexagonal.architecture.multi.modules.domain.workspace.model
 
 data class CreateWorkspaceToUser(
         val userId: String,

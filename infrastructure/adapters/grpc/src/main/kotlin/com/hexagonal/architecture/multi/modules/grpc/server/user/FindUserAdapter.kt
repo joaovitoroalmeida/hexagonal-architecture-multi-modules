@@ -1,11 +1,11 @@
 package com.hexagonal.architecture.multi.modules.grpc.server.user
 
-import com.hexagonal.architecture.multi.modules.domain.model.User
-import com.hexagonal.architecture.multi.modules.repository.user.FindUserRepository
+import com.hexagonal.architecture.multi.modules.domain.workspace.model.User
+import com.hexagonal.architecture.multi.modules.port.driven.user.FindUserDrivenPort
 import org.springframework.stereotype.Repository
 
 @Repository
-class FindUser: FindUserRepository {
+class FindUserAdapter: FindUserDrivenPort {
 
     override suspend fun findUserById(id: String): User {
         return User(

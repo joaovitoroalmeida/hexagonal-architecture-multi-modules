@@ -1,23 +1,23 @@
 package com.hexagonal.architecture.multi.modules.domain.workspace
 
-import com.hexagonal.architecture.multi.modules.domain.model.CreateWorkspaceToUser
-import com.hexagonal.architecture.multi.modules.repository.workspace.CreateWorkspaceRepository
-import com.hexagonal.architecture.multi.modules.repository.user.FindUserRepository
-import com.hexagonal.architecture.multi.modules.service.workspace.CreateWorkspaceService
-import org.springframework.stereotype.Service
+import com.hexagonal.architecture.multi.modules.domain.workspace.model.CreateWorkspaceToUser
+import com.hexagonal.architecture.multi.modules.port.driven.user.FindUserDrivenPort
+import com.hexagonal.architecture.multi.modules.port.driven.workspace.CreateWorkspaceDrivenPort
+import com.hexagonal.architecture.multi.modules.port.driving.workspace.CreateWorkspaceDrivingPort
+import org.springframework.stereotype.Component
 
-@Service
+@Component
 class CreateWorkspace(
-    private val createWorkspaceRepository: CreateWorkspaceRepository,
-    private val findUserRepository: FindUserRepository
-) : CreateWorkspaceService {
+        private val createWorkspacePort: CreateWorkspaceDrivenPort,
+        private val findUserDrivenPort: FindUserDrivenPort
+) : CreateWorkspaceDrivingPort {
 
     override suspend fun createNewWorkspaceToUserAdmin(createWorkspaceToUser: CreateWorkspaceToUser): String {
 
-        val user = findUserRepository.findUserById(createWorkspaceToUser.userId)
+        val user = findUserDrivenPort.findUserById(createWorkspaceToUser.userId)
 
         if(user.isAdmin() && createWorkspaceToUser.workspace.validWorkspace()) {
-            createWorkspaceRepository.createWorkspace(createWorkspaceToUser.workspace)
+            createWorkspacePort.createWorkspace(createWorkspaceToUser.workspace)
         }
 
         return ""

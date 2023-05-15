@@ -1,6 +1,6 @@
 package com.hexagonal.architecture.multi.modules.rest.client.workspace.extension
 
-import com.hexagonal.architecture.multi.modules.domain.model.CreateWorkspaceToUser
+import com.hexagonal.architecture.multi.modules.domain.workspace.model.CreateWorkspaceToUser
 import com.hexagonal.architecture.multi.modules.rest.client.workspace.request.CreateNewWorkspaceToUserAdminRequest
 
 fun CreateNewWorkspaceToUserAdminRequest.toDomain() =

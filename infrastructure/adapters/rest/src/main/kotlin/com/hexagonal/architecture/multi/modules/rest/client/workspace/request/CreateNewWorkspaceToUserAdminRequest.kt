@@ -1,6 +1,6 @@
 package com.hexagonal.architecture.multi.modules.rest.client.workspace.request
 
-import com.hexagonal.architecture.multi.modules.domain.model.CreateWorkspaceToUser
+import com.hexagonal.architecture.multi.modules.domain.workspace.model.CreateWorkspaceToUser
 
 data class CreateNewWorkspaceToUserAdminRequest(
     val userId: String,
