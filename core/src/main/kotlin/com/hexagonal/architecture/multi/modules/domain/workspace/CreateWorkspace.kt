@@ -1,5 +1,6 @@
 package com.hexagonal.architecture.multi.modules.domain.workspace
 
+import com.hexagonal.architecture.multi.modules.domain.model.CreateWorkspaceToUser
 import com.hexagonal.architecture.multi.modules.repository.workspace.CreateWorkspaceRepository
 import com.hexagonal.architecture.multi.modules.repository.user.FindUserRepository
 import com.hexagonal.architecture.multi.modules.service.workspace.CreateWorkspaceService
@@ -11,13 +12,14 @@ class CreateWorkspace(
     private val findUserRepository: FindUserRepository
 ) : CreateWorkspaceService {
 
-    override suspend fun createNewWorkspaceToUserAdmin(json: String): String {
+    override suspend fun createNewWorkspaceToUserAdmin(createWorkspaceToUser: CreateWorkspaceToUser): String {
 
-        val user = findUserRepository.findUserById(json)
+        val user = findUserRepository.findUserById(createWorkspaceToUser.userId)
 
-//        if(user.isAdmin()) {
-            return createWorkspaceRepository.createWorkspace(json)
-//        }
+        if(user.isAdmin() && createWorkspaceToUser.workspace.validWorkspace()) {
+            createWorkspaceRepository.createWorkspace(createWorkspaceToUser.workspace)
+        }
 
+        return ""
     }
 }
