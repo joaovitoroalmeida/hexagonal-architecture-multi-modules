@@ -5,7 +5,7 @@ import com.hexagonal.architecture.multi.modules.port.driven.user.FindUserDrivenP
 import org.springframework.stereotype.Repository
 
 @Repository
-class FindUserAdapter: FindUserDrivenPort {
+class FindUserServerAdapter: FindUserDrivenPort {
 
     override suspend fun findUserById(id: String): User {
         return User(

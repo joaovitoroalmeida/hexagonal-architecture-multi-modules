@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class CreateWorkspaceForDataAnalysisAdapter(
+class CreateWorkspaceForDataAnalysisClientAdapter(
         private val createWorkspaceDrivingPort: CreateWorkspaceDrivingPort
 ) {
 
